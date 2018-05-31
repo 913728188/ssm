@@ -34,4 +34,16 @@ $(function() {
 			}
 		});
 	});
+
+	$(".submit").on("click",function(){
+	    var data = $("#form").serializeArray();
+	    var object_ = {};
+	    for(var i of data){
+	        object_[i.name] = i.value;
+	    }
+	    data = JSON.stringify(object_)
+	    ajaxFn({url:"/user/register",data:data},function(result){
+	        alert(result);
+	    })
+	})
 });

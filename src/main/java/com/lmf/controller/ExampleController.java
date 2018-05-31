@@ -45,4 +45,9 @@ public class ExampleController {
     String index(){
         return  "index";
     }
+
+    @RequestMapping("/register")
+    String register(){
+        return "register";
+    }
 }
