@@ -5,6 +5,7 @@ import com.lmf.Exception.ExceptionUtil;
 import com.lmf.Util.sha;
 import com.lmf.VO.Login_check;
 import com.lmf.VO.RetData;
+import com.lmf.base.BaseController;
 import com.lmf.entity.User;
 import com.lmf.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

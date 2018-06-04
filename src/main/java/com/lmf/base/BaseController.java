@@ -11,6 +11,6 @@ import tk.mybatis.mapper.common.MySqlMapper;
  * TODO:进行描述
  **/
 @Controller
-public interface BaseController<T> extends Mapper,MySqlMapper<T> {
+public interface BaseController<T> {
 
 }
