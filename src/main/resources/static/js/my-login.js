@@ -35,15 +35,35 @@ $(function() {
 		});
 	});
 
+    function getFormData(selector){
+        var data = $(selector).serializeArray();
+        var object_ = {};
+        for(var i of data){
+          object_[i.name] = i.value;
+        }
+        object_ = JSON.stringify(object_);
+        return object_;
+    }
+
 	$(".submit").on("click",function(){
-	    var data = $("#form").serializeArray();
-	    var object_ = {};
-	    for(var i of data){
-	        object_[i.name] = i.value;
-	    }
-	    data = JSON.stringify(object_)
-	    ajaxFn({url:"/user/register",data:data},function(result){
-	        alert(result);
+	    var data = getFormData("#form");
+	    ajaxFn({url:"/register",data:data},function(result){
+	      if(result.code ==200 ){
+            location.href = "/login";
+          }
+
+	    })
+	}),
+
+	$(".login_submit").on("click",function(){
+
+	    var data = getFormData("#login_form");
+	    console.log(data);
+	    ajaxFn({url:"/login",data:data},function(result){
+	      alert(result.msg);
+          if(result.code ==200 ){
+            location.href = "/index";
+          }
 	    })
 	})
 });

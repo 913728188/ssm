@@ -9,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
  * root创建于18-5-31
  * TODO:进行描述
  **/
-public class sha {
+public  class sha {
     /** 传入文本内容，返回SHA-256 串*/
     public static String encry256(final String strText){
         return  SHA(strText,"SHA-256");

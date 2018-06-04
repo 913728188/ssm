@@ -20,4 +20,6 @@ public interface UserMapper extends BaseMapper<User> {
     int insert(User u);
 
     List<User> findAll();
+
+
 }
