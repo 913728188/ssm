@@ -1,8 +1,11 @@
 package com.lmf.Mapper;
 
+import com.lmf.base.BaseMapper;
 import com.lmf.entity.User;
 import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
+
+
+import java.util.List;
 
 /**
  * com.lmf.Mapper
@@ -11,8 +14,10 @@ import org.apache.ibatis.annotations.Mapper;
  * TODO:进行描述
  **/
 
-@Mapper
-public interface UserMapper {
+@org.apache.ibatis.annotations.Mapper
+public interface UserMapper extends BaseMapper<User> {
     @Insert(" INSERT INTO `t_user`(`id`,`name`,`password`) VALUES (#{id},#{name},#{password})")
     int insert(User u);
+
+    List<User> findAll();
 }

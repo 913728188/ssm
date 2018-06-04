@@ -9,8 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
 
-import static java.lang.System.out;
 
 /**
  * com.lmf.controller
@@ -34,4 +34,20 @@ public class UserController {
         String json = JSON.toJSONString(user);
         return json;
     }
+
+    @RequestMapping("/updatePwd")
+    @ResponseBody
+    public String updatePwd(@RequestBody String name){
+
+        String json = JSON.toJSONString(null);
+        return json;
+    }
+
+    @RequestMapping("/findAll")
+    @ResponseBody
+    public String findAll(){
+        List list = userService.findAll();
+        return JSON.toJSONString(list);
+    }
+
 }
