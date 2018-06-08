@@ -3,6 +3,9 @@ package com.lmf.Mapper;
 import com.lmf.base.BaseMapper;
 import com.lmf.entity.CsdnBlog;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -16,4 +19,11 @@ import java.util.List;
 public interface CsdnBlogMapper extends BaseMapper<CsdnBlog> {
 
     List<CsdnBlog> findAll();
+
+    @Select("select * from csdnblog where id = ${id}")
+    CsdnBlog findById(@Param("id") Long id);
+
+
+    @Update("update csdnblog set content='${csdblog.content}' where id=${csdblog.id}")
+    int updatebyEmit(@Param("csdblog") CsdnBlog csdnBlog);
 }

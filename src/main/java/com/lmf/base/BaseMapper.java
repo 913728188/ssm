@@ -16,6 +16,5 @@ import tk.mybatis.mapper.common.MySqlMapper;
 public interface BaseMapper<T>  extends MySqlMapper<T>,Mapper<T>,tk.mybatis.mapper.common.BaseMapper<T> {
 
 
-    @Select("select * from t_user where email = #{email} and password = #{password}")
-    User findByEmailAndPwd(@Param("email") String email, @Param("password") String password);
+
 }

@@ -3,6 +3,8 @@ package com.lmf.Mapper;
 import com.lmf.base.BaseMapper;
 import com.lmf.entity.User;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 
 import java.util.List;
@@ -21,5 +23,6 @@ public interface UserMapper extends BaseMapper<User> {
 
     List<User> findAll();
 
-
+    @Select("select * from t_user where email = #{email} and password = #{password}")
+    User findByEmailAndPwd(@Param("email") String email, @Param("password") String password);
 }

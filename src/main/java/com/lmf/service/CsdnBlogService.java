@@ -11,4 +11,5 @@ import com.lmf.entity.CsdnBlog;
  **/
 public interface CsdnBlogService extends BaseService<CsdnBlog,Long> {
 
+     boolean update(CsdnBlog entity);
 }

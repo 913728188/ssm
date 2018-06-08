@@ -10,5 +10,7 @@ public interface BaseService<T,PK> {
 
     boolean update(T u);
 
-    T findById(PK id);
+    boolean save(T u);
+
+    T findById(Long id);
 }

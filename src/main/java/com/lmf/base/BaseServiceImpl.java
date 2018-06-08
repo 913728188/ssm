@@ -27,8 +27,25 @@ public abstract class BaseServiceImpl<T,PK> implements BaseService<T,PK> {
         }
     }
 
+    /**
+     * 添加
+     * @param entity
+     * @return
+     */
     @Override
-    public T findById(PK id) {
+    public boolean save(T entity) {
+        int result = baseMapper.insert(entity);
+        if (result > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
+    //@Override
+    public T findById(Long id) {
         return baseMapper.selectByPrimaryKey(id);
     }
 }

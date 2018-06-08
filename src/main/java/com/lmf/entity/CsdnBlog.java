@@ -28,6 +28,12 @@ public class CsdnBlog implements Serializable {
 
     private int copyright;// 是否原创
 
+    private String content;//内容
+
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getId() {
         return id;
     }
@@ -44,9 +50,7 @@ public class CsdnBlog implements Serializable {
         this.title = title;
     }
 
-    public String getDate() {
-        return date;
-    }
+    public String getDate() { return date; }
 
     public void setDate(String date) {
         this.date = date;
@@ -91,4 +95,8 @@ public class CsdnBlog implements Serializable {
     public void setCopyright(int copyright) {
         this.copyright = copyright;
     }
+
+    public String getContent() { return content; }
+
+    public void setContent(String content) { this.content = content; }
 }

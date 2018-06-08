@@ -17,7 +17,7 @@ import java.util.List;
  * root创建于18-5-30
  * TODO:进行描述
  **/
-@Service
+@Service("UserService")
 public class UserServiceImpl  extends BaseServiceImpl<User,Long> implements UserService {
 
 
