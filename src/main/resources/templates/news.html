@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -35,7 +35,7 @@
 </div>
 <div class="container">
   <div class="col-md-8 news">
-    <h1 class="title">2年前他为教育事业和高圆圆分手，今成这般，高圆圆：我有一句MMP如鲠在喉</h1>
+    <h1 class="title" th:text="${data.title}"></h1>
     <p class="info">
       <span>阅读：35k</span> •
        <span>王花花</span> •
@@ -44,8 +44,8 @@
        <span class="label label-default">帅逼</span>
        <span class="label label-default">情感</span>
     </p>
-    <div class="content">
-      <img src="img/2-2.jpg" alt="">
+    <div class="content" th:utext="${data.content}">
+<!--      <img src="img/2-2.jpg" alt="">
       <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas iste vitae voluptas, magni. Dignissimos deserunt fugiat nulla repellat, officia quae placeat magnam enim quia, voluptatibus natus temporibus corporis, autem aperiam.</div>
       <div>Reprehenderit consequatur porro dolorem illo facere, laborum quaerat enim doloribus distinctio pariatur incidunt ratione unde exercitationem deserunt provident, ad iste! Eum dicta libero rerum sapiente quos nostrum enim mollitia quis!</div>
       <div>Natus tempore provident nihil explicabo, voluptate harum iusto quibusdam accusamus ab, eius quod molestias rerum veniam, doloremque officia eum recusandae beatae voluptas. Impedit velit, soluta repellendus quibusdam? Molestias, repellendus. Ex.</div>
@@ -79,6 +79,7 @@
       <div>Explicabo unde facilis soluta incidunt nisi dolores officia animi quis repellendus quod doloribus, pariatur rerum labore, veritatis adipisci. Quia excepturi repellat est minus, quae velit ipsum et facilis sequi aliquam!</div>
       <div>Repudiandae explicabo, officia quae at dolorem quis quam impedit recusandae repellat amet inventore reprehenderit eum aperiam non tempora enim dolor molestias, atque. Rem ea aliquam aspernatur, at corporis! Quos, sed?</div>
       <div>Quidem quis earum ipsum similique et tempore tempora nesciunt voluptatem voluptas molestias, eos fugiat ipsam. Praesentium veniam ullam officia unde qui fugit? Quos, qui. Sint incidunt omnis voluptatem, ad neque.</div>
+   -->
     </div>
   </div>
   <div class="col-md-4">

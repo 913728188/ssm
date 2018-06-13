@@ -1,14 +1,18 @@
 package com.lmf.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.lmf.entity.CsdnBlog;
 import com.lmf.processor.TestProcess;
 import com.lmf.service.CsdnBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import us.codecraft.webmagic.Spider;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * com.lmf.controller
@@ -17,6 +21,7 @@ import us.codecraft.webmagic.Spider;
  * TODO:进行描述
  **/
 @Controller
+@EnableAutoConfiguration
 public class CsdnBlogController{
 
     private static String username = "puppet_";// 设置csdn用户名
@@ -33,5 +38,20 @@ public class CsdnBlogController{
     @ResponseBody
     public void blogSpider(){
         Spider.create(new TestProcess(csdnBlogService)).addUrl("https://blog.csdn.net/"+username).thread(1).run();
+    }
+
+    @RequestMapping("/index")
+    String index(Model model){
+        List list = csdnBlogService.findAll();
+        System.out.println(list.size());
+        model.addAttribute("data",list);
+        return  "index";
+    }
+
+    @RequestMapping("/news")
+    String detail(@RequestParam("id") Long id ,Model model){
+        CsdnBlog blog = csdnBlogService.findById(Long.valueOf(id));
+        model.addAttribute("data",blog);
+        return  "news";
     }
 }

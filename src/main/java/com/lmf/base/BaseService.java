@@ -1,5 +1,8 @@
 package com.lmf.base;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * com.lmf.base
  * <p>
@@ -13,4 +16,6 @@ public interface BaseService<T,PK> {
     boolean save(T u);
 
     T findById(Long id);
+
+    List<T> findAll();
 }

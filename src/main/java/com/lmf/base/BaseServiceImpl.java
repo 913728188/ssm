@@ -1,5 +1,7 @@
 package com.lmf.base;
 
+import java.util.List;
+
 /**
  * com.lmf.base
  * <p>
@@ -47,5 +49,14 @@ public abstract class BaseServiceImpl<T,PK> implements BaseService<T,PK> {
     //@Override
     public T findById(Long id) {
         return baseMapper.selectByPrimaryKey(id);
+    }
+
+
+    /**
+     * 查询全部
+     * @return
+     */
+    public List<T> findAll() {
+        return baseMapper.selectAll();
     }
 }
