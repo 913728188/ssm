@@ -18,7 +18,7 @@ import java.util.List;
 
 @org.apache.ibatis.annotations.Mapper
 public interface UserMapper extends BaseMapper<User> {
-    @Insert(" INSERT INTO `t_user`(`id`,`name`,`password`) VALUES (#{id},#{name},#{password})")
+    @Insert(" INSERT INTO `t_user`(`id`,`name`,`password`,`email`) VALUES (#{id},#{name},#{password},#{email})")
     int insert(User u);
 
     List<User> findAll();

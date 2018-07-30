@@ -35,6 +35,7 @@ public class UserController {
     @ResponseBody
     public String signup(@RequestBody User user){
         user.setId(new Date().getTime());
+        user.setPassword(sha.encry256(user.getPassword()));
         userService.addUser(user);
         String json = JSON.toJSONString(user);
         return json;
@@ -80,7 +81,7 @@ public class UserController {
      * 修改用户密码为
      * sha256
      */
-/*    @RequestMapping("/findAll")
+    @RequestMapping("/findAll")
     @ResponseBody
     public String findAll(){
         List<User> list = userService.findAll();
@@ -90,6 +91,6 @@ public class UserController {
             System.out.println(bool);
         }
         return JSON.toJSONString(list);
-    }*/
+    }
 
 }

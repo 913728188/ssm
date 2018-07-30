@@ -47,7 +47,7 @@ $(function() {
 
 	$(".submit").on("click",function(){
 	    var data = getFormData("#form");
-	    ajaxFn({url:"/register",data:data},function(result){
+	    ajaxFn({url:"/signup",data:data},function(result){
 	      if(result.code ==200 ){
             location.href = "/login";
           }
