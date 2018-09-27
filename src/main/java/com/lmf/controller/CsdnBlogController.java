@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.lmf.entity.CsdnBlog;
 import com.lmf.processor.TestProcess;
 import com.lmf.service.CsdnBlogService;
+import com.lmf.service.MsgService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
@@ -29,6 +30,8 @@ public class CsdnBlogController{
     @Autowired
     CsdnBlogService csdnBlogService;
 
+    @Autowired
+    MsgService msgService;
 
 
     /**
@@ -42,7 +45,7 @@ public class CsdnBlogController{
 
     @RequestMapping("/index")
     String index(Model model){
-        List list = csdnBlogService.findAll();
+        List list = msgService.findAll();
         System.out.println(list.size());
         model.addAttribute("data",list);
         return  "index";
