@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import us.codecraft.webmagic.Spider;
 
 import java.util.ArrayList;
@@ -43,12 +44,15 @@ public class CsdnBlogController{
         Spider.create(new TestProcess(csdnBlogService)).addUrl("https://blog.csdn.net/"+username).thread(1).run();
     }
 
-    @RequestMapping("/index")
-    String index(Model model){
+    @RequestMapping(value = "/index",method = RequestMethod.GET)
+    ModelAndView index(@RequestParam String user_id){
         List list = msgService.findAll();
+        ModelAndView model = new ModelAndView();
+        model.setViewName("index");
         System.out.println(list.size());
-        model.addAttribute("data",list);
-        return  "index";
+        model.addObject("data",list);
+        model.addObject("user",user_id);
+        return  model;
     }
 
     @RequestMapping("/news")

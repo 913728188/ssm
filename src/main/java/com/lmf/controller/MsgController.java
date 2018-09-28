@@ -23,12 +23,17 @@ public class MsgController {
     MsgService msgService;
     @RequestMapping(value = "/addMsg",method = RequestMethod.POST,consumes = "application/json")
     @ResponseBody
-    public String signup(@RequestBody Msg msg){
+    public String addMsg(@RequestBody Msg msg){
         long date = new Date().getTime();
         msg.setId(date);
        msg.setCreatedAt(date);
         Msg  m = msgService.add(msg);
         String json = JSON.toJSONString(msg);
         return json;
+    }
+
+    @RequestMapping(value = "/addMsg",method = RequestMethod.GET)
+    public String addMsg(){
+        return "addMsg";
     }
 }

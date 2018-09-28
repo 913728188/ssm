@@ -35,15 +35,6 @@ $(function() {
 		});
 	});
 
-    function getFormData(selector){
-        var data = $(selector).serializeArray();
-        var object_ = {};
-        for(var i of data){
-          object_[i.name] = i.value;
-        }
-        object_ = JSON.stringify(object_);
-        return object_;
-    }
 
 	$(".submit").on("click",function(){
 	    var data = getFormData("#form");
@@ -62,7 +53,8 @@ $(function() {
 	    ajaxFn({url:"/login",data:data},function(result){
 	      alert(result.msg);
           if(result.code ==200 ){
-            location.href = "/index";
+           sessionStorage.setItem("user", result.data.id);
+            location.href = "/index?user_id="+result.data.id;
           }
 	    })
 	})

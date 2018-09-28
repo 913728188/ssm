@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="LMF">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/my-login.css">
+</head>
+<body class="my-login-page">
+<section class="h-100">
+    <div class="container h-100">
+        <div class="row justify-content-md-center h-100">
+            <div class="card-wrapper">
+                <div class="brand">
+                    <img src="img/logo.jpg">
+                </div>
+                <div class="card fat">
+                    <div class="card-body">
+                        <h4 class="card-title">ADDMSG</h4>
+                        <form id="add_msg_form">
+
+                            <div class="form-group">
+                                <label for="content">Content</label>
+
+                                <textarea id="content"  class="form-control" name="content"></textarea>
+                            </div>
+
+
+
+                            <div class="form-group no-margin">
+                                <button type="button" class="btn btn-primary btn-block add_submit">
+                                    ADD
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="footer">
+                    Copyright &copy; 2018 &mdash; LMF
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="js/common.js"></script>
+<script>
+    $(".add_submit").on("click",function(){
+            var data = getFormData("#add_msg_form");
+	    console.log(data);
+	    ajaxFn({url:"/addMsg",data:data},function(result){
+	      alert(result.msg);
+          if(result.code ==200 ){
+            alert("添加成功")
+          }
+	    })
+    })
+</script>
+</body>
+</html>

@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("msgService")
 public class MsgServiceImpl extends BaseServiceImpl<Msg,Long> implements MsgService{
 
@@ -42,4 +44,7 @@ public class MsgServiceImpl extends BaseServiceImpl<Msg,Long> implements MsgServ
         return msg;
     }
 
+    public List findAll(){
+        return msgMapper.selectAll();
+    }
 }

@@ -19,3 +19,13 @@ function ajaxFn(option,successFn,errorFn){
         }
     })
 }
+
+    function getFormData(selector){
+        var data = $(selector).serializeArray();
+        var object_ = {};
+        for(var i of data){
+          object_[i.name] = i.value;
+        }
+        object_ = JSON.stringify(object_);
+        return object_;
+    }

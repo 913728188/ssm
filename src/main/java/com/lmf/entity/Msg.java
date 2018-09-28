@@ -9,6 +9,7 @@ public class Msg implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public  long id;
+
     public  long user_id;
 
     public long getId() {
@@ -29,6 +30,7 @@ public class Msg implements Serializable {
 
     public String getContent() {
         return content;
+
     }
 
     public void setContent(String content) {

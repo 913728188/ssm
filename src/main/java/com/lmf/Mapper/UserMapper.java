@@ -18,11 +18,11 @@ import java.util.List;
 
 @org.apache.ibatis.annotations.Mapper
 public interface UserMapper extends BaseMapper<User> {
-    @Insert(" INSERT INTO `t_user`(`id`,`name`,`password`,`email`) VALUES (#{id},#{name},#{password},#{email})")
+    @Insert(" INSERT INTO `user`(`id`,`name`,`password`,`email`) VALUES (#{id},#{name},#{password},#{email})")
     int insert(User u);
 
     List<User> findAll();
 
-    @Select("select * from t_user where email = #{email} and password = #{password}")
+    @Select("select * from user where email = #{email} and password = #{password}")
     User findByEmailAndPwd(@Param("email") String email, @Param("password") String password);
 }

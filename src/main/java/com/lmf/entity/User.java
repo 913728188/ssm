@@ -12,7 +12,7 @@ import java.io.Serializable;
  * TODO:进行描述
  **/
 @Entity
-@Table(name="t_user")
+@Table(name="user")
 public class User implements Serializable {
 
         @Id
