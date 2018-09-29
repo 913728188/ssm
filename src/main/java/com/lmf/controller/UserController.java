@@ -48,6 +48,11 @@ public class UserController {
         return "login";
     }
 
+    @RequestMapping(value = "/demo",method=RequestMethod.GET)
+    public String demo() {
+        return "demo";
+    }
+
     @RequestMapping(value = "/login",method=RequestMethod.POST,consumes = "application/json")
     @ResponseBody
     public String login_check(@RequestBody Login_check user) {
